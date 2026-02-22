@@ -1,5 +1,5 @@
 module tdual_port_ram #(
-    parameter DEPTH = 8388608,
+    parameter DEPTH = 2**23,
     parameter WIDTH = 32
 )(
     input clock,
