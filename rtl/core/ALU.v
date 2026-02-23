@@ -61,16 +61,16 @@ begin
                       else data_out = A_data_in | alu_immediate_in;
                       end
         
-        NOT     :        data_out = ~A_data_in;
+        NOT     :        data_out = {32'd0,~A_data_in};
        
         NOR     :     begin if(alu_src_sel == 1'b0)
-                            data_out = ~(A_data_in | B_data_in);
-                      else data_out = ~(A_data_in | alu_immediate_in);
+                            data_out = {32'd0,~(A_data_in | B_data_in)};
+                      else data_out = {32'd0,~(A_data_in | alu_immediate_in)};
                       end
         
         NAND    :     begin if(alu_src_sel == 1'b0)
-                            data_out = ~(A_data_in & B_data_in);
-                      else data_out = ~(A_data_in & alu_immediate_in);
+                            data_out = {32'd0,~(A_data_in & B_data_in)};
+                      else data_out = {32'd0,~(A_data_in & alu_immediate_in)};
                       end
         
         XOR     :     begin if(alu_src_sel == 1'b0)
@@ -79,8 +79,8 @@ begin
                       end
         
         XNOR    :     begin if(alu_src_sel == 1'b0)
-                            data_out = ~(A_data_in ^ B_data_in);
-                      else data_out = ~(A_data_in ^ alu_immediate_in);
+                            data_out = {32'd0,~(A_data_in ^ B_data_in)};
+                      else data_out = {32'd0,~(A_data_in ^ alu_immediate_in)};
                       end
         
         SHL     :     data_out = A_data_in << shift_amt;
