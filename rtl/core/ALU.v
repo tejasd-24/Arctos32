@@ -10,7 +10,7 @@ module ALU(
     
     input [31:0] alu_immediate_in,
     
-    output reg z_flag, 
+    output z_flag, 
     output reg carry_flag,  
     
     output reg [63:0] data_out 
@@ -95,7 +95,7 @@ begin
     endcase
 end            
         
-  always@(*) z_flag = (data_out == 64'd0) ? 1'b1 : 1'b0;
+  assign z_flag = (data_out == 64'd0) ? 1'b1 : 1'b0;
   
   always@(*)
   begin
