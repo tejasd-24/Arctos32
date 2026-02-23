@@ -1,7 +1,5 @@
-`timescale 1ns / 1ps 
 module ALU(
 
-    input enable, 
     input [3:0] alu_opcode, 
     input [31:0] A_data_in, 
     input [31:0] B_data_in, 
@@ -10,7 +8,7 @@ module ALU(
     
     input [31:0] alu_immediate_in,
     
-    output z_flag, 
+    output reg z_flag, 
     output reg carry_flag,  
     
     output reg [63:0] data_out 
@@ -95,7 +93,7 @@ begin
     endcase
 end            
         
-  assign z_flag = (data_out == 64'd0) ? 1'b1 : 1'b0;
+  always@(*) z_flag = (data_out == 64'd0) ? 1'b1 : 1'b0;
   
   always@(*)
   begin
