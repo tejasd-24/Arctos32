@@ -8,7 +8,7 @@ module ALU(
     input alu_src_sel,
     input [31:0] shift_amt,
     
-    input [24:0] alu_immediate_in,
+    input [31:0] alu_immediate_in,
     
     output reg z_flag, 
     output reg carry_flag,  
