@@ -7,7 +7,7 @@ module control_unit(
     input [2:0] opcode,
 
     //Flags from ALU
-    input z_flag,
+    input z_flag, 
     input carry_flag,
     
     //Branch type input from ID
@@ -30,8 +30,6 @@ module control_unit(
     output reg flash_read,
 
     //Dual port RAM
-    output reg wr_en_A,
-    output reg wr_en_B,
     output reg mem_rw_out,
 
     //Write back mux
